@@ -1,38 +1,21 @@
-1.1. Kết nối SSH vào BeagleBone Black
-# Ket noi SSH qua USB (ip mac dinh)
-ssh debian@192.168.7.2
+### 1.1. Kết nối SSH vào BeagleBone Black
 
-# Mat khau mac dinh
-temppwd
-1.2. Copy file từ Ubuntu lên BBB
-# Copy toan bo thu muc project
-scp -r /home/manhht10ht/do_an_nhung/ debian@192.168.7.2:/home/debian/
+<img width="735" height="143" alt="image" src="https://github.com/user-attachments/assets/7ef9e118-ddcb-42d8-809f-19189097178e" />
 
-# Copy file don le
-scp project_v4.c debian@192.168.7.2:/home/debian/do_an_nhung/
+### 1.2. Copy file từ Ubuntu lên BBB
 
-# Copy file tu BBB ve Ubuntu
-scp debian@192.168.7.2:/home/debian/do_an_nhung/project_v4 ./
-1.3. Chia sẻ internet từ Ubuntu sang BBB qua USB
-# Tren Ubuntu - bat ip forward va NAT
-sudo sysctl net.ipv4.ip_forward=1
-sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
+<img width="735" height="143" alt="image" src="https://github.com/user-attachments/assets/37e8167b-34e1-4c64-968e-136208303ebd" />
 
-# Tren BBB - them default route va DNS
-sudo ip route add default via 192.168.7.1
-echo 'nameserver 8.8.8.8' | sudo tee /etc/resolv.conf
+### 1.3. Chia sẻ internet từ Ubuntu sang BBB qua USB
 
-# Kiem tra ket noi
-ping 8.8.8.8 -c 3
-1.4. Cài đặt các gói cần thiết trên BBB
-# Cap nhat danh sach goi
-sudo apt update
+<img width="733" height="286" alt="image" src="https://github.com/user-attachments/assets/2ab59725-d6b2-45da-b17f-87894d6d47e3" />
 
-# Cai kernel headers de build driver
-sudo apt install linux-headers-$(uname -r) build-essential -y
+### 1.4. Cài đặt các gói cần thiết trên BBB
 
-# Cai cac cong cu khac
-sudo apt install gdbserver i2c-tools curl -y
-1.5. Tắt BBB an toàn
-sudo shutdown -h now
+<img width="733" height="286" alt="image" src="https://github.com/user-attachments/assets/7287d3ee-9d53-4c98-bab5-303ac7dc4313" />
+
+### 1.5. Tắt BBB an toàn
+
+<img width="759" height="26" alt="image" src="https://github.com/user-attachments/assets/d6ab3478-1d9a-4c62-abdf-5ea793a5fd4f" />
+
 
